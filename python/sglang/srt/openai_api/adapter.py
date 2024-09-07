@@ -559,14 +559,14 @@ def v1_generate_response(request, ret, tokenizer_manager, to_file=False):
         elif isinstance(request.prompt, list) and isinstance(request.prompt[0], list):
             # for the case of multiple token ids prompts
             prompts = [
-                tokenizer_manager.tokenizer.decode(prompt, skip_special_tokens=True)
+                tokenizer_manager.tokenizer.decode(prompt, skip_special_tokens=False)
                 for prompt in request.prompt
             ]
         elif isinstance(request.prompt, list) and isinstance(request.prompt[0], int):
             # for the case of single token ids prompt
             prompts = [
                 tokenizer_manager.tokenizer.decode(
-                    request.prompt, skip_special_tokens=True
+                    request.prompt, skip_special_tokens=False
                 )
             ]
         else:
@@ -706,7 +706,7 @@ async def v1_completions(tokenizer_manager, raw_request: Request):
                                 elif isinstance(request.prompt[0], int):
                                     # for the case of single token ids prompt
                                     prompts = tokenizer_manager.tokenizer.decode(
-                                        request.prompt, skip_special_tokens=True
+                                        request.prompt, skip_special_tokens=False
                                     )
                                 elif isinstance(request.prompt[0], list) and isinstance(
                                     request.prompt[0][0], int
@@ -714,7 +714,7 @@ async def v1_completions(tokenizer_manager, raw_request: Request):
                                     # for the case of multiple token ids prompts
                                     prompts = tokenizer_manager.tokenizer.decode(
                                         request.prompt[index // request.n],
-                                        skip_special_tokens=True,
+                                        skip_special_tokens=False,
                                     )
 
                             # Prepend prompt in response text.

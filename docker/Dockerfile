@@ -1,4 +1,4 @@
-ARG CUDA_VERSION=12.1.1
+ARG CUDA_VERSION=12.4.1
 FROM nvidia/cuda:${CUDA_VERSION}-devel-ubuntu20.04
 ARG BUILD_TYPE=all
 ENV DEBIAN_FRONTEND=noninteractive
@@ -21,7 +21,7 @@ RUN echo 'tzdata tzdata/Areas select America' | debconf-set-selections \
 WORKDIR /sgl-workspace
 
 RUN python3 -m pip install --upgrade pip setuptools wheel html5lib six \
-    && git clone --depth=1 https://github.com/sgl-project/sglang.git \
+    && git clone --depth=1 https://github.com/w5peng/sglang.git \
     && cd sglang \
     && if [ "$BUILD_TYPE" = "srt" ]; then \
          python3 -m pip --no-cache-dir install -e "python[srt]"; \
