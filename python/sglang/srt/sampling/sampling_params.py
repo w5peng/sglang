@@ -35,7 +35,7 @@ class SamplingParams:
         presence_penalty: float = 0.0,
         repetition_penalty: float = 1.0,
         ignore_eos: bool = False,
-        skip_special_tokens: bool = True,
+        skip_special_tokens: bool = False,
         spaces_between_special_tokens: bool = True,
         regex: Optional[str] = None,
         n: int = 1,

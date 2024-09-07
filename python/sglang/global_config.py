@@ -26,7 +26,7 @@ class GlobalConfig:
         self.flashinfer_workspace_size = 384 * 1024 * 1024
 
         # Output tokenization configs
-        self.skip_special_tokens_in_output = True
+        self.skip_special_tokens_in_output = False
         self.spaces_between_special_tokens_in_out = True
 
         # Interpreter optimization configs

@@ -53,7 +53,7 @@ min_p: float = 0.0,
 # Whether to ignore EOS token.
 ignore_eos: bool = False,
 # Whether to skip the special tokens during detokenization.
-skip_special_tokens: bool = True,
+skip_special_tokens: bool = False,
 # Whether to add spaces between special tokens during detokenization.
 spaces_between_special_tokens: bool = True,
 # Constrains the output to follow a given regular expression.
